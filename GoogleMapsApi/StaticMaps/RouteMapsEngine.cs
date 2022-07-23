@@ -102,7 +102,7 @@ namespace GoogleMapsApi.StaticMaps
 			{
 
 				request.Zoom = (int)Math.Log((int)(40000 / Math.Ceiling((double)(km / 2))), (int)2) - 1;
-				if (km < 10) request.Zoom = 16;
+				if (km < 10) request.Zoom = 15;
 			}
 			
 
@@ -136,7 +136,7 @@ namespace GoogleMapsApi.StaticMaps
 			{
 				
 				request.Zoom = (int)Math.Log((int)(40000 / Math.Ceiling((double)(km / 2))), (int)2) - 2;
-				if (km < 10) request.Zoom = 16;
+				if (km < 10) request.Zoom = 15;
 			}
 			int weight = 10;
 			weight = CalculateWeight(km);
