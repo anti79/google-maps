@@ -49,7 +49,7 @@ namespace GoogleMapsApi.StaticMaps
 		}
 		private int CalculateWeight(double km)
 		{
-			return (int)Math.Ceiling(Math.Log(km, 4));
+			return (int)Math.Ceiling(Math.Log(km, 2));
 		}
 		public string GenerateRouteMapURLSnap(RouteMapRequest request)
 		{
