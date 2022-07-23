@@ -144,11 +144,11 @@ namespace google_maps_api
                 catch (NullReferenceException)
                 {
                     MessageBox.Show("Route not found");
-                }
+                }/*
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
+                }*/
             });
 
             ZoomInCommand = new RelayCommand((_) =>

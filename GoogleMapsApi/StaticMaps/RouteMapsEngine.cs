@@ -15,8 +15,10 @@ namespace GoogleMapsApi.StaticMaps
 	public class RouteMapsEngine
 	{
 		//TODO: REFACTOR
+		
 		private StaticMapRequest CreateStaticMapRequest(RouteMapRequest request, IEnumerable<Location> locs, int weight)
 		{
+			
 			StaticMapRequest staticMapRequest = new StaticMapRequest(request.Center, 12, request.Size)
 			{
 				ImageFormat = request.ImageFormat,
@@ -98,7 +100,9 @@ namespace GoogleMapsApi.StaticMaps
 			km = (int)DistanceCalculator.DistanceTo(locA.Latitude, locA.Longitude, locB.Latitude, locB.Longitude);
 			if (request.CalculateZoom)
 			{
-				request.Zoom = (int)Math.Log((int)(40000 / (km / 2)), (int)2) - 2;
+
+				request.Zoom = (int)Math.Log((int)(40000 / Math.Ceiling((double)(km / 2))), (int)2) - 1;
+				if (km < 10) request.Zoom = 16;
 			}
 			
 
@@ -130,7 +134,9 @@ namespace GoogleMapsApi.StaticMaps
 			int km = distance / 1000;
 			if (request.CalculateZoom)
 			{
-				request.Zoom = (int)Math.Log((int)(40000 / (km / 2)), (int)2) - 2;
+				
+				request.Zoom = (int)Math.Log((int)(40000 / Math.Ceiling((double)(km / 2))), (int)2) - 2;
+				if (km < 10) request.Zoom = 16;
 			}
 			int weight = 10;
 			weight = CalculateWeight(km);
